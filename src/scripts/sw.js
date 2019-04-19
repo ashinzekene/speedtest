@@ -1,7 +1,7 @@
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
   '/speedtest/',
-  '/speedtest/manifest.json',
+  '/speedtest/dist/manifest.json',
   '/speedtest/dist/css/index.css',
   '/speedtest/dist/scripts/index.js'
 ];
