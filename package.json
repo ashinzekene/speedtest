@@ -1,0 +1,31 @@
+{
+  "name": "speedtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx gulp build",
+    "dev": "npx gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashinzekene/speedtest.git"
+  },
+  "keywords": [
+    "speedtest",
+    "broadband",
+    "internet"
+  ],
+  "author": "Ekene Ashinze",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashinzekene/speedtest/issues"
+  },
+  "homepage": "https://github.com/ashinzekene/speedtest#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
+  }
+}
