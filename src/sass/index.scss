@@ -26,8 +26,13 @@ body {
 .speed-text {
   font-size: 7rem;
   font-weight: 200;
+  text-align: center;
   position: relative;
   z-index: 1000;
+  div {
+    padding-left: 15px;
+    font-size: 2rem;
+  }
 }
 
 .box {

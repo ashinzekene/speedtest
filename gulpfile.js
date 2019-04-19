@@ -4,7 +4,6 @@ const gulp       = require('gulp')
 const sass       = require('gulp-sass')
 const sourcemaps = require('gulp-sourcemaps')
 const connect    = require('gulp-connect')
-const fs         = require('fs')
 
 // file paths for assets
 const paths = {
