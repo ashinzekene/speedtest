@@ -1,5 +1,5 @@
 # Speed Test
 
-https://ashinekene.github.io/speedtest
+https://ashinzekene.github.io/speedtest
 
 ![Speed Test screenshot](./screenshot.png)
