@@ -1,18 +1,18 @@
 'use strict'
 
-const gulp       = require('gulp')
-const sass       = require('gulp-sass')
-const sourcemaps = require('gulp-sourcemaps')
-const connect    = require('gulp-connect')
+const gulp          = require('gulp')
+const sass          = require('gulp-sass')
+const sourcemaps    = require('gulp-sourcemaps')
+const connect       = require('gulp-connect')
+const htmlmin       = require('gulp-htmlmin')
+const uglify        = require('gulp-uglify-es').default
 
-// file paths for assets
 const paths = {
   index: './index.html',
   sass: 'src/sass/**/*.scss',
-  script: 'src/scripts/**/*.js'
+  script: 'src/scripts/**/*.js',
+  sw: 'src/*.js',
 }
-
-// const allTasks = ['server', 'watch', 'js', 'sass',]
 
 const sassGulp = () => gulp.src(paths.sass)
     .pipe(sourcemaps.init())
@@ -22,21 +22,37 @@ const sassGulp = () => gulp.src(paths.sass)
     .pipe(gulp.dest('dist/css'))
 
 const jsGulp = () => gulp.src(paths.script)
+    .pipe(sourcemaps.init())
+    .pipe(uglify())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/scripts'))
 
+
+const swGulp = () => gulp.src(paths.sw)
+    .pipe(uglify())
+    .pipe(gulp.dest('./'))
+
+const htmlGulp = () => gulp.src(paths.index)
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      removeComments: true
+    }))
+    .pipe(gulp.dest('./'));
+
+
 const watchJS = () => gulp.watch(paths.script, gulp.series(jsGulp, reload));
+const watchSW = () => gulp.watch(paths.script, gulp.series(swGulp, reload));
 const watchCSS = () => gulp.watch(paths.sass, gulp.series(sassGulp, reload));
 const watchHTML = () => gulp.watch(paths.index, reload);
 
 const server = () => connect.server({livereload: true});
 const reload = () => gulp.src(paths.index).pipe(connect.reload());
 
-// handle changes and reload server afterwards.
 const watch = gulp.parallel(
-  watchCSS, watchJS, watchHTML
+  watchCSS, watchJS, watchHTML, watchSW
 )
 
 
-exports.build = gulp.parallel(jsGulp, sassGulp)
+exports.build = gulp.parallel(jsGulp, sassGulp, htmlGulp, swGulp)
 
 exports.watch = gulp.parallel(server, watch)

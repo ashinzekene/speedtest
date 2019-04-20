@@ -25,7 +25,9 @@
   "devDependencies": {
     "gulp": "^4.0.0",
     "gulp-connect": "^5.7.0",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify-es": "^1.0.4"
   }
 }
