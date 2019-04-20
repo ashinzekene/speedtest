@@ -1,4 +1,4 @@
-var CACHE_NAME = 'my-site-cache-v1';
+var CACHE_NAME = 'speedtest-v1';
 var urlsToCache = [
   '/speedtest/',
   '/speedtest/favicon.svg',
@@ -10,6 +10,12 @@ var urlsToCache = [
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+  );
+});
+
+self.addEventListener("activate", function(event) {
+  event.waitUntil(
+    caches.delete('my-site-cache-v1')
   );
 });
 

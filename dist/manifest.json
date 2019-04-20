@@ -5,9 +5,9 @@
   "display": "standalone",
   "start_url": "./",
   "theme_color": "#F83AA8",
-  "icons": {
-    "src": "../favicon.svg",
+  "icons": [{
+    "src": "/speedtest/favicon.svg",
     "type": "image/png",
     "sizes": "192x192"
-  }
+  }]
 }
