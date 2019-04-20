@@ -4,5 +4,10 @@
   "background_color": "#F83AA8",
   "display": "standalone",
   "start_url": "./",
-  "theme_color": "#F83AA8"
+  "theme_color": "#F83AA8",
+  "icons": {
+    "src": "../favicon.svg",
+    "type": "image/png",
+    "sizes": "192x192"
+  }
 }
